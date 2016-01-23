@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="stockOrderApp">
+
 <head>
-  <title>StockOrder</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<title>Grapics</title>
+	<%= csrf_meta_tags %>
+	<%= stylesheet_link_tag 'application', media: 'all' %>
+	<%= javascript_include_tag 'application' %>
+</head>	
 
-<%= yield %>
+<header ng-include="components/navbar.html"></header>
 
-</body>
+<body ng-view></body>
+
 </html>

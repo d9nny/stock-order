@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'active_model_serializers'
+gem 'sprockets', '2.12.3'
+gem 'angular-rails-templates'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -19,6 +22,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+gem 'bower-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
