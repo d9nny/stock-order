@@ -8,8 +8,12 @@
 	<%= javascript_include_tag 'application' %>
 </head>	
 
-<header ng-include="'navbar.html'"></header>
+<header ng-include="'navbar.html'">
+</header>
 
-<body ng-view></body>
+<body>
+	<div class="container" ng-view>
+	</div>
+</body>
 
 </html>
