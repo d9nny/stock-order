@@ -18,4 +18,5 @@
 //= require angular-resource
 //= require angular-xeditable
 //= require app
+//= require_tree ./controllers
 //= require_tree ./templates

@@ -34,3 +34,4 @@ module StockOrder
     config.angular_templates.htmlcompressor = false    # Do not swallow errors in after_commit/after_rollback callbacks.
   end
 end
+

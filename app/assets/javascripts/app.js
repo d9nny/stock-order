@@ -10,6 +10,16 @@ var stockOrderApp = angular.module('stockOrderApp', ['ngRoute', 'templates', 'ng
 	      .when('/', {
 	        templateUrl: 'main/home.html'
 	      })
+	      .when('/companies', {
+	        templateUrl: 'companies/viewCompanies.html',
+	        controller: 'CompaniesController',
+	        controllerAs: 'compCtrl'
+	      })
+	      .when('/companies/new', {
+	        templateUrl: 'companies/newCompany.html',
+	        controller: 'CompaniesController',
+	        controllerAs: 'compCtrl'
+	      })
 	      .otherwise({
         redirectTo: '/'
       });

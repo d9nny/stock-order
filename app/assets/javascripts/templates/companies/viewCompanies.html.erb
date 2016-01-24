@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="page-header intro">
+      <h2>Companies</h2>
+    </div>
+    <div class="pull-left button-add">
+      <a ng-href="/#/companies/new" class="btn btn-primary">Add Company</a>
+    </div><br>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Budget</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="company in compCtrl.companies">
+          <td>{{ company.id }}</td>
+          <td>
+            <span editable-text="company.name"
+            e-name="name"
+            e-form="rowform"
+            e-required>
+            {{ company.name || 'empty' }}
+          </span>
+        </td>
+        <td>
+          <span editable-text="company.budget"
+          e-name="budget"
+          e-form="rowform"
+          e-required>
+          {{ company.budget || 'empty' }}
+        </span>
+      </td>
+      <td style="white-space: nowrap">
+        <form editable-form name="rowform"
+        onaftersave="compCtrl.update($data, company.id)"
+        ng-show="rowform.$visible"
+        class="form-buttons form-inline"
+        shown="inserted == company">
+        <button type="submit" class="btn btn-primary">
+          Save
+        </button>
+        <button type="button" ng-click="rowform.$cancel()" class="btn btn-default">
+          Cancel
+        </button>
+      </form>
+      <div class="buttons" ng-show="!rowform.$visible">
+        <button class="btn btn-primary" ng-click="rowform.$show()">Edit</button>
+        <button class="btn btn-danger" ng-click="compCtrl.delete(company.id)">Delete</button>
+      </div>
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
