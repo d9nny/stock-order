@@ -17,7 +17,6 @@
  @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
  @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
-
  header {
   height: 4.5em;
   margin-bottom: 1.5em;
@@ -54,3 +53,8 @@ nav li:last-child a {
   border-right: 1px solid #576979;
   line-height: 1px;
  }
+
+.center {
+  width: auto;
+  margin: auto;
+}

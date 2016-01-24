@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
 
   before_action :set_company, only: [:show, :update, :destroy]
@@ -10,10 +11,12 @@ class CompaniesController < ApplicationController
 
     render json: @companies
   end
+
   # GET /companies/1
   def show
     render json: @company
-
+  end
+  
   # POST /companies
   def create
     @company = Company.new(company_params)
@@ -49,5 +52,7 @@ class CompaniesController < ApplicationController
     def company_params
       params.require(:company).permit(:name, :budget)
     end
+
+
 end
 
