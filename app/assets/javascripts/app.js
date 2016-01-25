@@ -1,4 +1,4 @@
-var stockOrderApp = angular.module('stockOrderApp', ['ngRoute', 'templates', 'ngResource', 'xeditable']);
+var stockOrderApp = angular.module('StockOrderApp', ['ngRoute', 'templates', 'ngResource', 'xeditable']);
 
 	stockOrderApp.run(function(editableOptions) {
 	  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'

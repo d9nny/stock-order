@@ -39,3 +39,5 @@ protractor test/e2e/conf.js
 
 Karma Tests
 
+karma start test/karma.conf.js
+
