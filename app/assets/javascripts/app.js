@@ -12,12 +12,12 @@ var stockOrderApp = angular.module('stockOrderApp', ['ngRoute', 'templates', 'ng
 	      })
 	      .when('/companies', {
 	        templateUrl: 'companies/viewCompanies.html',
-	        controller: 'CompaniesController',
+	        controller: 'CompanyController',
 	        controllerAs: 'compCtrl'
 	      })
 	      .when('/companies/new', {
 	        templateUrl: 'companies/newCompany.html',
-	        controller: 'CompaniesController',
+	        controller: 'CompanyController',
 	        controllerAs: 'compCtrl'
 	      })
 	      .otherwise({

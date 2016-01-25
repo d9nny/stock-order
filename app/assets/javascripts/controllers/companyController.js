@@ -1,6 +1,6 @@
 'use strict';
 
-stockOrderApp.controller('CompaniesController', ['$http', '$location', function($http, $location) {
+stockOrderApp.controller('CompanyController', ['$http', '$location', function($http, $location) {
 	var self = this;
 	self.path = 'http://localhost:3000/companies';
 
