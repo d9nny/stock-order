@@ -20,17 +20,16 @@
  header {
   height: 4.5em;
   margin-bottom: 1.5em;
-  background-color: #33355A;
+  background-color: #303031;
  }
 
  .navbar-right {
- 	margin-right: 6em;
- 	margin-top: 2.2em;
+    margin-right: 4em;
+    margin-top: 1.2em;
  }
 
-.navbar-brand {
-	float: left;
-  margin: 0 1.2em;
+.navbar-header {
+  padding: 1.5em 5em;
 }
 
 nav li:last-child a {
@@ -55,6 +54,46 @@ nav li:last-child a {
  }
 
 .center {
-  width: auto;
+  width: 675px;
   margin: auto;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #303031;
+    border-color: #636566;
+    font-weight: 100;
+    font-size: medium;
+    letter-spacing: 1px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.btn-danger {
+    color: #fff;
+    font-weight: 100;
+    font-size: medium;
+    letter-spacing: 1px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+ 
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary:active, 
+.btn-primary.active, 
+.open .dropdown-toggle.btn-primary { 
+  color: #FFFFFF; 
+  background-color: #606162; 
+  border-color: #6E6E6F; 
+} 
+ 
+.btn-primary:active, 
+.btn-primary.active, 
+.open .dropdown-toggle.btn-primary { 
+  background-image: none; 
+} 
+
+ 
+.btn-primary .badge { 
+  color: #FFFFFF; 
+  background-color: #606162; 
 }
