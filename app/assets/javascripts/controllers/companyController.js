@@ -15,7 +15,6 @@ stockOrderApp.controller('CompanyController', ['$http', '$location', function($h
 		$http.get(self.path)
 		.then(function (response) {
 			self.companies = response.data.companies;
-
 		});
 	};
 

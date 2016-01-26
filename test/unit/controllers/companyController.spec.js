@@ -5,7 +5,7 @@ describe('CompanyController', function() {
   var ctrl,
       companyPath = 'http://localhost:3000/companies';
 
-  beforeEach(inject(function($controller, $http, $location) {
+  beforeEach(inject(function($controller) {
     ctrl = $controller('CompanyController');
   }));
 
@@ -44,7 +44,7 @@ describe('CompanyController', function() {
     }
     ];
 
-    it('displays search results', function() {
+    it('displays comapany results', function() {
       ctrl.show();
       httpBackend.flush();
       expect(ctrl.companies.items).toEqual(items);

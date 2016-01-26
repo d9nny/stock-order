@@ -26,6 +26,10 @@ gem 'bower-rails'
 
 gem 'pg'
 
+gem 'rails-api'
+
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

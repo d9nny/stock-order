@@ -6,6 +6,7 @@
     "angular-resource": "latest",
     "angular-mocks": "latest",
     "angular-route": "latest",
-    "angular-xeditable": "latest"
+    "angular-xeditable": "latest",
+    "angular-devise": "latest"
   }
 }

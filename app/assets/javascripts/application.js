@@ -19,5 +19,6 @@
 //= require angular-xeditable
 //= require_tree ./controllers
 //= require_tree ./templates
+//= require angular-devise/lib/devise
 //= require app
 
