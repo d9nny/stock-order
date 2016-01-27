@@ -19,6 +19,11 @@ var stockOrderApp = angular.module('StockOrderApp', ['ngRoute', 'templates', 'ng
 	      .when('/', {
 	        templateUrl: 'main/home.html'
 	      })
+	      .when('/logIn', {
+	        templateUrl: 'users/logInUser.html',
+	        controller: 'UserController',
+	        controllerAs: 'userCtrl'
+	      })
 	      .when('/companies', {
 	        templateUrl: 'companies/viewCompanies.html',
 	        controller: 'CompanyController',

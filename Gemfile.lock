@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.5)
       actionpack (= 4.2.5)
@@ -110,6 +111,9 @@ GEM
     rails-api (0.4.0)
       actionpack (>= 3.2.11)
       railties (>= 3.2.11)
+    rails-assets-angular (1.4.9)
+    rails-assets-angular-devise (1.1.0)
+      rails-assets-angular (>= 1.2.0, < 2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -200,6 +204,7 @@ DEPENDENCIES
   pg
   rails (= 4.2.5)
   rails-api
+  rails-assets-angular-devise!
   rails_12factor
   rails_serve_static_assets
   rails_stdout_logging

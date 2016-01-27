@@ -17,7 +17,8 @@
 //= require angular-route
 //= require angular-resource
 //= require angular-xeditable
-//= require_tree ./controllers
+//= require controllers/userController
+//= require controllers/companyController
 //= require_tree ./templates
 //= require angular-devise/lib/devise
 //= require app
