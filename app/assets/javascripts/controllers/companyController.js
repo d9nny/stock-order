@@ -1,10 +1,10 @@
 'use strict';
 
-stockOrderApp.controller('CompanyController', ['$http', '$location', function($http, $location) {
+angular.module('StockOrderApp.controllers').controller('CompanyController', ['$http', '$location', function($http, $location) {
 	var self = this;
 	self.path = 'http://localhost:3000/companies';
 
-		console.log('loaded');
+		console.log('loaded c');
 
 	$http.get(self.path)
 	.then( function (response) {

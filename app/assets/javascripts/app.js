@@ -1,19 +1,19 @@
-var stockOrderApp = angular.module('StockOrderApp', ['ngRoute', 'templates', 'ngResource', 'xeditable', 'Devise']);
+var StockOrderApp = angular.module('StockOrderApp', ['ngRoute', 'templates', 'ngResource', 'xeditable', 'Devise', 'StockOrderApp.controllers']);
 
-	stockOrderApp.run(function(editableOptions) {
+	StockOrderApp.run(function(editableOptions) {
 	  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 	});
 
- 	stockOrderApp.config(function(AuthProvider) {
+ 	StockOrderApp.config(function(AuthProvider) {
         // Configure Auth service with AuthProvider
     }).
-    controller('userCtrl', function(Auth) {
+    controller('UserController', function(Auth) {
         // Use your configured Auth service.
         console.log(Auth._currentUser);
         console.log(Auth.isAuthenticated());
   	});
 
-	stockOrderApp.config(['$routeProvider',
+	StockOrderApp.config(['$routeProvider',
 	  function($routeProvider) {
 	    $routeProvider
 	      .when('/', {
@@ -45,6 +45,6 @@ var stockOrderApp = angular.module('StockOrderApp', ['ngRoute', 'templates', 'ng
 	        controllerAs: 'userCtrl'
 	      })
 	      .otherwise({
-        redirectTo: '/'
+        redirectTo: '/home'
       });
 	}]);

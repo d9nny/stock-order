@@ -1,13 +1,10 @@
 'use strict';
 
-stockOrderApp.controller('UserController', ['$http', '$location', 'Auth', function($http, $location, Auth) {
+angular.module('StockOrderApp.controllers').controller('UserController', ['$http', '$location', function($http, $location, Auth) {
 	var self = this;
- 	self.config = {
-    		headers: {
-      		'X-HTTP-Method-Override': 'POST'
-    		}
-  		};
   self.path = 'http://localhost:3000/users';
+
+	console.log('loaded u');
 
 	$http.get(self.path)
 	.then( function (response) {
@@ -18,12 +15,16 @@ stockOrderApp.controller('UserController', ['$http', '$location', 'Auth', functi
 	  var credentials = {
           email: self.email,
           password: self.password
-        };
+        },
+        config = {
+    			headers: {
+      			'X-HTTP-Method-Override': 'POST'
+    			}
+  			};
 	  console.log(credentials)
 
     Auth.login(credentials, self.config).then(function(user) {
         console.log(user); // => {id: 1, ect: '...'}
-        $location.path('/home');
     }, function(error) {
         console.log("failed")
     });
@@ -37,6 +38,7 @@ stockOrderApp.controller('UserController', ['$http', '$location', 'Auth', functi
         // user logged in by Auth.login({...})
         self.currentUser = Auth._currentUser.email
     });
+    $location.path('/home');
   };
  
  	self.logOut= function() {
