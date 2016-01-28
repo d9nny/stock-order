@@ -1,7 +1,7 @@
 <section class="center">
 
   <div class="page-header intro">
-    <h2>Companies</h2>
+    <h2>Users</h2>
   </div>
 
   <div class="pull-left button-add">
@@ -18,7 +18,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="user in userCtrl.users">
-        <td id='id_cell'>{{ users.id }}</td>
+        <td id='id_cell'>{{ user.id }}</td>
         <td id='cell'>
           <span editable-text="user.email"
                 e-name="email"

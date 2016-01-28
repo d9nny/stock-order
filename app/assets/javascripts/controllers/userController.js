@@ -2,16 +2,11 @@
 
 angular.module('StockOrderApp.controllers').controller('UserController', ['$http', '$location', function($http, $location, Auth) {
 	var self = this;
-  self.path = 'http://localhost:3000/users';
+  // self.path = 'http://localhost:3000/users';
 
 	console.log('loaded u');
 
-	$http.get(self.path)
-	.then( function (response) {
-		self.users = response.data.users;
-	});
-
-	self.logIn = function() {
+	self.login = function() {
 	  var credentials = {
           email: self.email,
           password: self.password
@@ -63,39 +58,72 @@ angular.module('StockOrderApp.controllers').controller('UserController', ['$http
   	});
  	};
 
-	self.show = function () {
-		$http.get(self.path)
-		.then(function (response) {
-			self.users = response.data.users;
-		});
-	};
+ 	self.register = function() {
+	  var credentials = {
+          email: self.email,
+          password: self.password
+        },
+        config = {
+    			headers: {
+      			'X-HTTP-Method-Override': 'POST'
+    			}
+  			};
+	  console.log(credentials)
 
-	self.create = function () {
-		var data = {
-			email: self.email,
-			password: self.password
-		};
-		$http.post(self.path, data)
-		.then(function() {
-			self.show();
-			$location.path('/users');
-		});
-	};
+    Auth.register(credentials, self.config).then(function(user) {
+        console.log(user); // => {id: 1, ect: '...'}
+    }, function(error) {
+        console.log("failed")
+    });
 
-	self.update = function (data, id) {
-		$http.put(self.path + '/' + id, data)
-		.then(function(response) {
-			self.resultPut = response;
-			$location.path('/users');
-		});
-	};
+    self.$on('devise:register', function(event, currentUser) {
+        // after a register, a hard refresh, a new tab
+        self.currentUser = Auth._currentUser.email
+    });
 
-	self.delete = function (id) {
-		$http.delete(self.path + '/' + id)
-		.then(function() {
-			self.show();
-		});
-	};
+    $location.path('/users');
+  };
 
 }]);
+
+
+	// $http.get(self.path)
+	// .then( function (response) {
+	// 	self.users = response.data.users;
+	// 	console.log(self.users);
+	// });
+
+	// self.show = function () {
+	// 	$http.get(self.path)
+	// 	.then(function (response) {
+	// 		self.users = response.data.users;
+	// 	});
+	// };
+
+	// self.create = function () {
+	// 	var data = {
+	// 		email: self.email,
+	// 		password: self.password
+	// 	};
+	// 	$http.post(self.path, data)
+	// 	.then(function() {
+	// 		self.show();
+	// 		$location.path('/users');
+	// 	});
+	// };
+
+	// self.update = function (data, id) {
+	// 	$http.put(self.path + '/' + id, data)
+	// 	.then(function(response) {
+	// 		self.resultPut = response;
+	// 		$location.path('/users');
+	// 	});
+	// };
+
+	// self.delete = function (id) {
+	// 	$http.delete(self.path + '/' + id)
+	// 	.then(function() {
+	// 		self.show();
+	// 	});
+	// };
 
