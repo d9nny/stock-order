@@ -2,7 +2,8 @@
 
 angular.module('StockOrderApp.controllers').controller('CompanyController', ['$http', '$location', function($http, $location) {
 	var self = this;
-	self.path = 'http://localhost:3000/companies';
+	// self.path = 'http://localhost:3000/companies';
+	self.path = 'https://infinite-coast-37394.herokuapp.com/companies';
 
 	console.log('Loaded compCtrl');
 
