@@ -2,8 +2,7 @@
 
 angular.module('StockOrderApp.controllers').controller('UserController', ['$http', '$location', 'Auth', '$scope', function($http, $location, Auth, $scope) {
 	var self = this;
-	// self.path = 'http://localhost:3000/users';
-	self.auth = Auth;
+	self.path = 'http://localhost:3000/users';
 	self.loginTab = 0;
 	console.log('Loaded userCtrl');
 
@@ -16,7 +15,15 @@ angular.module('StockOrderApp.controllers').controller('UserController', ['$http
 	}
 
 	self.loggedIn = function() {
-		return (self.auth.isAuthenticated() === false);
+		return (Auth.isAuthenticated() === true);
+	};
+
+	self.admin = function() {
+		if (self.loggedIn()) {
+			if (Auth._currentUser.admin === true) {
+				return true;
+			}
+		} 
 	};
 
 	self.login = function() {
@@ -33,11 +40,11 @@ angular.module('StockOrderApp.controllers').controller('UserController', ['$http
 
 		Auth.login(credentials, self.config).then(function(user) {
 			self.setLoginTab(2);
-			$location.path('/companies');
+			$location.path('/home');
 		}, function(error) {
 			self.setLoginTab(3);
 		});
-		
+
 		$scope.$on('devise:login', function(event, currentUser) {
         // after a login, a hard refresh, a new tab
         self.currentUser = Auth._currentUser.email;
@@ -48,7 +55,7 @@ angular.module('StockOrderApp.controllers').controller('UserController', ['$http
         self.currentUser = Auth._currentUser.email;
       });
 	};
-	
+
 	self.logOut= function() {
 		var config1 = {
 			headers: {
@@ -56,11 +63,11 @@ angular.module('StockOrderApp.controllers').controller('UserController', ['$http
 			}
 		};
 		self.oldUser = self.currentUser;
-		
+
 		Auth.logout(config1).then(function(oldUser) {
 			self.currentUser = "";
 			console.log(self.oldUser.email)
-			
+
 		}, function(error) {
           // An error occurred logging out.
         });
@@ -100,11 +107,6 @@ angular.module('StockOrderApp.controllers').controller('UserController', ['$http
 }]);
 
 
-	// $http.get(self.path)
-	// .then( function (response) {
-	// 	self.users = response.data.users;
-	// 	console.log(self.users);
-	// });
 
 	// self.show = function () {
 	// 	$http.get(self.path)
