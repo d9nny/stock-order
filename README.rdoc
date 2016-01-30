@@ -41,3 +41,31 @@ Karma Tests
 
 karma start test/karma.conf.js
 
+
+
+
+tables
+
+Companies - name, budget
+
+user - name, email, password, password confirmation, address, privilege, company, number
+
+addresses?
+
+products - company, product code, name, description, price, quantity, image_1, image_2
+
+orders - user details, company, price, postage?, products, delivery address 
+
+
+
+join table
+
+products and orders
+users and orders
+orders & addresses
+users and addresses?
+
+
+
+
+bin/rails generate scaffold User name:string email:string password:string password_confirmation: string privilege:string 

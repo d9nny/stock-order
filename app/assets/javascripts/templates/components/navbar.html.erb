@@ -1,14 +1,70 @@
-<!-- header -->
-<nav role="navigation">
-  <div class="navbar-header">
-    <img href="/#/" src="<%= asset_path('logo.png')%>" alt="Atlantic Group"/>
-  </div>
-  <ul class="nav navbar-nav navbar-right">
-		<li><a href="#/">Home</a></li>
-		<li><a href="#about">About Us</a></li>
-		<li><a href="#portfolio">Portfolio</a></li>
-		<li><a href="#userLog">Log In</a></li>
-		<li><a href="#contact">Contact Us</a>
-  </ul>
+<!-- Navbar -->
+
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/#/">
+				<img src="<%= asset_path('logo.png')%>" alt="Atlantic Group"/>
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a href="#/">Home</a></li>
+				<li ng-show='userCtrl.loggedIn()'><a href="#companies">Companies<!-- {{userCtrl.currentUser.company}} --></a></li>
+				<li><a href="#about">About Us</a></li>
+				<li><a href="#portfolio">Portfolio</a></li>
+				<li><a href="#contact">Contact Us</a></li>
+				<li></li>
+				<li id='login-out-btns' ng-show='userCtrl.loggedIn()'><a ng-click="userCtrl.logOut()">Sign Out</a></li>
+				<li ng-show='!(userCtrl.loggedIn())'><a ng-click="userCtrl.setLoginTab(1)">Login<span class="caret"></span></a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
 </nav>
 
+<!-- Flash Messages -->
+
+<div id="flash-message" ng-show='userCtrl.activeLoginTab(2)'>
+	<p>Welcome {{ userCtrl.currentUser }}</p>
+</div>
+<div id="flash-message" ng-show='userCtrl.activeLoginTab(3)'>
+	<p>Sorry something went wrong, please try again.</p>
+</div>
+<div id="flash-message" ng-show='userCtrl.activeLoginTab(4)'>
+	<p>Thanks {{ userCtrl.oldUser }}, see you soon.</p>
+</div>
+
+
+<!-- Login Dropdown -->
+
+<section id="login-dp" ng-show='userCtrl.activeLoginTab(1)'>
+	<div class="row">
+		<div class="col-md-12">
+			<p>Login</p>
+			<form class="form" role="form" accept-charset="UTF-8" id="login-nav">
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputEmail2">Email address</label>
+					<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" ng-model="userCtrl.email" required>
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputPassword2">Password</label>
+					<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" ng-model="userCtrl.password" required>
+					<!-- <div class="help-block text-right"><a href="">Forget the password ?</a></div> -->
+				</div>
+				<div class="form-group">
+					<button type="submit" ng-click="userCtrl.login()" class="btn btn-primary btn-block">Sign in</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
