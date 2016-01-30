@@ -27,7 +27,7 @@ angular.module('StockOrderApp.controllers').controller('CompanyController', ['$h
 		$http.post(self.path, data)
 		.then(function() {
 			self.show();
-			$location.path('/companies');
+			$location.path('/#/companies');
 		});
 	};
 
