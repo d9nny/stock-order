@@ -2,7 +2,6 @@
 
 angular.module('StockOrderApp.controllers').controller('UserController', ['$http', '$location', 'Auth', '$scope', function($http, $location, Auth, $scope) {
 	var self = this;
-	self.path = 'http://localhost:3000/users';
 	self.loginTab = 0;
 	console.log('Loaded userCtrl');
 
