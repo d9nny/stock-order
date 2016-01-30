@@ -4,7 +4,7 @@ angular.module('StockOrderApp.controllers').controller('CompanyController', ['$h
 	var self = this;
 	self.path = 'http://localhost:3000/companies';
 
-		console.log('loaded c');
+	console.log('Loaded compCtrl');
 
 	$http.get(self.path)
 	.then( function (response) {

@@ -17,45 +17,97 @@
  @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
  @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
- header {
-  height: 4.5em;
-  margin-bottom: 1.5em;
-  background-color: #303031;
- }
+// Navbar
 
- #login-logout {
-  text-align: right;
- }
-
- .navbar-right {
-    margin-right: 4em;
-    margin-top: 1.2em;
- }
-
-.navbar-header {
-  padding: 1.5em 5em;
-}
-
-nav li:last-child a {
-	border-right: 0;
-}
-
- .nav > li > a:hover, .nav > li > a:focus {
- 	text-decoration: none;
- 	background-color:#E2E3E4;
- 	color: #040471;
- 	border-radius: 4px;
- }
-
- .nav > li > a {
-  text-decoration: none;
-  color: #E2E3E4;
-  letter-spacing: 1px;
-  font-weight: 100;
+nav a {
   font-size: 15px;
-  border-right: 1px solid #576979;
-  line-height: 1px;
- }
+  font-weight: 200;
+  letter-spacing: 1.5px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#login-out-btns:hover {
+  cursor: pointer;
+}
+
+#login-out-btns:active {
+  color: white;
+}
+
+
+#flash-message > p{
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: .5px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  top: 18%;
+  position: absolute;
+  background-color: #2AE0CD;
+  padding: 10px 20px;
+  text-align: center;
+  right: 1.5%;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.navbar-inverse {
+  width: 97%;
+  margin: auto;
+  margin-top: 1.5em;
+}
+
+.navbar-brand {
+  margin: 0 1em !important;
+}
+
+#login-dp{
+  overflow: hidden;
+  position: absolute;
+  width: 300px;
+  right: 1%;
+  background-color: #28CFCF;
+  margin-right: 1%;
+  padding: 40px 20px 25px 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#login-dp p {
+  font-size: 25px;
+  margin: 0 0 10px;
+  color: white;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+#login-dp .bottom{
+  background-color:rgba(255,255,255,.8);
+  border-top:1px solid #ddd;
+  clear:both;
+  padding:14px;
+}
+
+#login-dp .form-group {
+  margin-bottom: 15px;
+}
+
+.btn-tw:hover{
+  color: #fff;
+  background-color:#59b5fa;
+}
+@media(max-width:950px){
+  #login-dp{
+    background-color: inherit;
+    color: #fff;
+  }
+  #login-dp .bottom{
+    background-color: inherit;
+    border-top:0 none;
+  }
+}
+
+////////////////////
+
 
 .center {
   width: 675px;
@@ -63,23 +115,23 @@ nav li:last-child a {
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #303031;
-    border-color: #636566;
-    font-weight: 100;
-    font-size: medium;
-    letter-spacing: 1px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #fff;
+  background-color: #303031;
+  border-color: #636566;
+  font-weight: 100;
+  font-size: medium;
+  letter-spacing: 1px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .btn-danger {
-    color: #fff;
-    font-weight: 100;
-    font-size: medium;
-    letter-spacing: 1px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #fff;
+  font-weight: 100;
+  font-size: medium;
+  letter-spacing: 1px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
- 
+
 .btn-primary:hover, 
 .btn-primary:focus, 
 .btn-primary:active, 
@@ -89,14 +141,14 @@ nav li:last-child a {
   background-color: #606162; 
   border-color: #6E6E6F; 
 } 
- 
+
 .btn-primary:active, 
 .btn-primary.active, 
 .open .dropdown-toggle.btn-primary { 
   background-image: none; 
 } 
 
- 
+
 .btn-primary .badge { 
   color: #FFFFFF; 
   background-color: #606162; 

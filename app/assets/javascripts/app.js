@@ -5,14 +5,9 @@ var StockOrderApp = angular.module('StockOrderApp', ['ngRoute', 'templates', 'ng
 	});
 
  	StockOrderApp.config(function(AuthProvider) {
-        // Configure Auth service with AuthProvider
-    });
- 	// .
-  //   controller('UserController', function(Auth) {
-  //       // Use your configured Auth service.
-  //       console.log(Auth._currentUser);
-  //       console.log(Auth.isAuthenticated());
-  // 	});
+    // Configure Auth service with AuthProvider
+  });
+
 
 	StockOrderApp.config(['$routeProvider',
 	  function($routeProvider) {
