@@ -299,6 +299,12 @@
              */
             isAuthenticated: function(){
                 return !!service._currentUser;
+            },
+
+            isAdmin: function(){
+                if (!!service.isAuthenticated()) {
+                    return !!service._currentUser.admin;
+                }
             }
         };
 

@@ -8,22 +8,32 @@ var StockOrderApp = angular.module('StockOrderApp', ['ngRoute', 'templates', 'ng
     // Configure Auth service with AuthProvider
   });
 
-
 	StockOrderApp.config(['$routeProvider',
 	  function($routeProvider) {
 	    $routeProvider
 	      .when('/', {
 	        templateUrl: 'main/home.html'
 	      })
-	      .when('/logIn', {
-	        templateUrl: 'users/logInUser.html',
+	      .when('/login', {
+	        templateUrl: 'users/loginUser.html',
 	        controller: 'UserController',
 	        controllerAs: 'userCtrl'
 	      })
 	      .when('/companies', {
 	        templateUrl: 'companies/viewCompanies.html',
 	        controller: 'CompanyController',
-	        controllerAs: 'compCtrl'
+	        controllerAs: 'compCtrl',
+	        resolve: {
+	          auth: ['Auth', '$location', '$q', function(Auth, $location, $q) {
+	         		console.log(Auth.isAdmin());
+	         		var deferred = $q.defer(); 
+	       			if (!(Auth.isAdmin() === true)) {
+	       				$location.path('/login');
+				      }
+				      deferred.resolve();
+      				return deferred.promise;
+	          }]
+	        }
 	      })
 	      .when('/companies/new', {
 	        templateUrl: 'companies/newCompany.html',
