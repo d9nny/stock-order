@@ -38,17 +38,50 @@ var StockOrderApp = angular.module('StockOrderApp', ['ngRoute', 'templates', 'ng
 	      .when('/companies/new', {
 	        templateUrl: 'companies/newCompany.html',
 	        controller: 'CompanyController',
-	        controllerAs: 'compCtrl'
+	        controllerAs: 'compCtrl',
+	        resolve: {
+	          auth: ['Auth', '$location', '$q', function(Auth, $location, $q) {
+	         		console.log(Auth.isAdmin());
+	         		var deferred = $q.defer(); 
+	       			if (!(Auth.isAdmin() === true)) {
+	       				$location.path('/login');
+				      }
+				      deferred.resolve();
+      				return deferred.promise;
+	          }]
+	        }
 	      })
 	      .when('/users', {
 	        templateUrl: 'users/viewUsers.html',
 	        controller: 'UserController',
-	        controllerAs: 'userCtrl'
+	        controllerAs: 'userCtrl',
+	        resolve: {
+	          auth: ['Auth', '$location', '$q', function(Auth, $location, $q) {
+	         		console.log(Auth.isAdmin());
+	         		var deferred = $q.defer(); 
+	       			if (!(Auth.isAdmin() === true)) {
+	       				$location.path('/login');
+				      }
+				      deferred.resolve();
+      				return deferred.promise;
+	          }]
+	        }
 	      })
 	      .when('/users/new', {
 	        templateUrl: 'users/newUser.html',
 	        controller: 'UserController',
-	        controllerAs: 'userCtrl'
+	        controllerAs: 'userCtrl',
+	        resolve: {
+	          auth: ['Auth', '$location', '$q', function(Auth, $location, $q) {
+	         		console.log(Auth.isAdmin());
+	         		var deferred = $q.defer(); 
+	       			if (!(Auth.isAdmin() === true)) {
+	       				$location.path('/login');
+				      }
+				      deferred.resolve();
+      				return deferred.promise;
+	          }]
+	        }
 	      })
 	      .otherwise({
         redirectTo: '/home'
