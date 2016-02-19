@@ -3,14 +3,19 @@
 angular.module('StockOrderApp.controllers').controller('UserController', ['$http', '$location', 'Auth', '$scope', function($http, $location, Auth, $scope) {
 	var self = this;
 	self.loginTab = 0;
+	self.flashMessageTab = 0;
 	console.log('Loaded userCtrl');
 
-	self.setLoginTab = function(num) {
-		self.loginTab = num;
+	self.setLoginTab = function() {
+		self.loginTab += 1;
 	};
 
 	self.activeLoginTab = function(num) {
-		return (self.loginTab === num);
+		return (self.loginTab % 2 === num);
+	}
+
+	self.activeflashMessageTab = function(num) {
+		return (self.flashMessageTab === num);
 	}
 
 	self.loggedIn = function() {
@@ -38,10 +43,11 @@ angular.module('StockOrderApp.controllers').controller('UserController', ['$http
 		console.log(credentials)
 
 		Auth.login(credentials, self.config).then(function(user) {
-			self.setLoginTab(2);
+			self.flashMessageTab = 2;
+			self.loginTab += 1;
 			$location.path('/home');
 		}, function(error) {
-			self.setLoginTab(3);
+			self.flashMessageTab = 3;
 		});
 
 		$scope.$on('devise:login', function(event, currentUser) {
@@ -72,7 +78,7 @@ angular.module('StockOrderApp.controllers').controller('UserController', ['$http
         });
 
 		$scope.$on('devise:logout', function(event, oldCurrentUser) {
-			self.setLoginTab(4);
+			self.flashMessageTab = 4;
 			$location.path('/home');
 		});
 	};
